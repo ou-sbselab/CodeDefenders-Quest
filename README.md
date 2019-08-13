@@ -1,5 +1,23 @@
 # CodeDefenders Quest
 
+Changes from Tap-Tap-Adventure:
+
+* Removed dependency on `bcrypt` in favor of `bcryptjs`
+* Updated port to be 80 to avoid local firewall concerns
+** This means the server must be run with `sudo`, at least on Debian-based systems.
+
+## Setup
+
+I am using Node v12.8.0 and NPM v6.9.0.  It is untested with other versions.
+
+* Run `npm install -d` to install package dependencies.
+** Remove `node_modules` if you get permissions errors when installing NPM packages
+
+## Launch Server
+
+* In the root of the repository, run `sudo node server/js/main.js`
+** Ensure that `client/data/config.json` is updated to point towards the webhost's IP address
+
 ----- Initial README.
 
 Tap Tap Adventure (TTA) is a massively multi-player online open-source project based on Little Workshop's 2012 demonstration for HTML5 WebSockets - BrowserQuest (BQ).
