@@ -1,5 +1,17 @@
 # CodeDefenders Quest
 
+This is a browser-based massively-multiplayer online game (MMO) based on Mozilla's BrowserQuest and forked from Tap Tap Adventure.  The intent of this game is to provide an enjoyable experience for students to be exposed to common software engineering topics, including requirements engineering, software testing, search-based software engineering, and cloud technologies.
+
+## Planned Quests
+
+* Mutation testing
+
+Assemble an object that can trap all variants (mutants) of a functioning program while allowing the original to remain untrapped.
+
+* Evolutionary computation
+
+* Requirements engineering
+
 ## TODO:
 
 * Fix login/registration errors
