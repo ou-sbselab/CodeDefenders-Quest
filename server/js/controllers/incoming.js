@@ -168,7 +168,18 @@ module.exports = Incoming = cls.Class.extend({
                 uri: config.register_api + '?a=' + '9a4c5ddb-5ce6-4a01-a14f-3ae49d8c6507' + '&u=' + self.player.username + '&p=' + self.player.password + '&e=' + self.player.email
             };
 
+            try {
+              self.mysql.register(self.player);
+            } catch (e) {
+              log.info(e);
+            }
+
+            /*
+
             Request(registerOptions, function(error, response, body) {
+                //log.info(error);
+                //log.info(response);
+                //log.info(body);
                 try {
                     var data = JSON.parse(JSON.parse(body).data);
 
@@ -197,12 +208,13 @@ module.exports = Incoming = cls.Class.extend({
                     }
 
                 } catch (e) {
+                    log.info('We got there');
                     log.info('Could not decipher API message');
 
                     self.connection.sendUTF8('disallowed');
                     self.connection.close('API response is malformed!')
                 }
-            });
+            });*/
 
         } else if (isGuest) {
 
@@ -223,8 +235,9 @@ module.exports = Incoming = cls.Class.extend({
                 }
             };
 
-            Request(loginOptions, function(error, response, body) {
-                var data;
+            self.mysql.login(self.player);
+//            Request(loginOptions, function(error, response, body) {
+//                var data;
 
                 /**
                  * The website may respond with HTML message if
@@ -234,24 +247,25 @@ module.exports = Incoming = cls.Class.extend({
                  * allow connections.
                  */
 
-                try {
-                    data = JSON.parse(body);
-
-                } catch (e) {
-                    log.info('Could not decipher API message');
-
-                    self.connection.sendUTF8('disallowed');
-                    self.connection.close('API response is malformed!');
-                }
-
-                if (data && data.message) {
-
-                    self.connection.sendUTF8('invalidlogin');
-                    self.connection.close('Wrong password entered for: ' + self.player.username);
-                } else
-                    self.mysql.login(self.player);
-
-            });
+//                try {
+//                    data = JSON.parse(body);
+//
+//                } catch (e) {
+//                    log.info('We got here');
+//                    log.info('Could not decipher API message');
+//
+//                    self.connection.sendUTF8('disallowed');
+//                    self.connection.close('API response is malformed!');
+//                }
+//
+//                if (data && data.message) {
+//
+//                    self.connection.sendUTF8('invalidlogin');
+//                    self.connection.close('Wrong password entered for: ' + self.player.username);
+//                } else
+//                    self.mysql.login(self.player);
+//
+//            });
         }
     },
 
