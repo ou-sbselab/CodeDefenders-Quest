@@ -7,7 +7,7 @@
     "type": "git"
   },
   "dependencies": {
-    "bcrypt": "^1.0.2",
+    "bcryptjs": "^2.4.3",
     "commander": "^2.15.1",
     "connect": "^3.6.6",
     "http": "0.0.0",

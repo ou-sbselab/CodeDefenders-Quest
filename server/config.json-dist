@@ -1,8 +1,8 @@
 @@ -1,28 +0,0 @@
 {
-  "name": "Tap Tap Adventure",
+  "name": "CodeDefenders Quest",
   "host": "0.0.0.0",
-  "port": 1800,
+  "port": 80,
 
   "offlineMode": false,
   "devClient": true,
