@@ -1,5 +1,11 @@
 # CodeDefenders Quest
 
+## TODO:
+
+* Fix login/registration errors
+* Fix scaling problems
+* Verify map creation/update tools
+
 Changes from Tap-Tap-Adventure:
 
 * Removed dependency on `bcrypt` in favor of `bcryptjs`
